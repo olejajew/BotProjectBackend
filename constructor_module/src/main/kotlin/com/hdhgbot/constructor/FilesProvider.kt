@@ -23,6 +23,7 @@ class FilesProvider(private val botId: String, defaultInstructions: File? = null
 
     fun updateInstructions(instructions: InstructionsModel) {
         AwsProvider.saveTextFile(gson.toJson(instructions), INSTRUCTIONS_FILE_NAME, BUCKET_NAME, botId)
+        this.instructions = gson.toJson(instructions)
         deleteUselessImages(instructions)
     }
 
