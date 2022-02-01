@@ -1,5 +1,7 @@
 plugins {
     id 'org.jetbrains.kotlin.jvm' version '1.5.20'
+    id 'application'
+
 }
 
 group = 'com.doblack'
@@ -9,6 +11,15 @@ repositories {
     mavenCentral()
     jcenter()
     maven { url 'https://kotlin.bintray.com/ktor' }
+}
+
+
+application {
+    mainClass = 'com.test.rest.Application'
+}
+
+tasks.create("stage") {
+    dependsOn("installDist")
 }
 
 dependencies {
