@@ -1,0 +1,1 @@
+web: ./build/install/BotProjectBackend/bin/BotProjectBackend
