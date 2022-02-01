@@ -30,7 +30,9 @@ class Application {
         }
 
         private fun startServer() {
-            val server = embeddedServer(Netty, port = 8080) {
+            val server = embeddedServer(
+                Netty, port = System.getenv("PORT").toInt()
+            ) {
                 install(ContentNegotiation) {
                     jackson {
                         enable(SerializationFeature.INDENT_OUTPUT)
@@ -49,7 +51,7 @@ class Application {
                     anyHost()
                 }
                 routing {
-                    get("test"){
+                    get("test") {
                         call.respondText("Hello world")
                     }
                     route("v1") {
@@ -60,7 +62,7 @@ class Application {
                             post("update") {
                                 MainInfoProvider.updateBotInfo(call)
                             }
-                            post("create"){
+                            post("create") {
                                 MainInfoProvider.createBot(call)
                             }
                         }
@@ -126,10 +128,10 @@ class Application {
                             post("instructions") {
                                 ConstructorProvider.updateInstructions(call)
                             }
-                            post("image"){
+                            post("image") {
                                 ConstructorProvider.addNewImage(call)
                             }
-                            get("image"){
+                            get("image") {
                                 ConstructorProvider.getImage(call)
                             }
                         }
