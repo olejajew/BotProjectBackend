@@ -1,0 +1,6 @@
+rootProject.name = 'BotProjectBackend'
+include 'bot_library'
+include 'analytics_module'
+include 'core'
+include 'constructor_module'
+

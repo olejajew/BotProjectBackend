@@ -1,0 +1,6 @@
+/.gradle/
+/build/
+/.idea/
+/bot_library/build/
+/constructor_module/build/
+/core/build/
