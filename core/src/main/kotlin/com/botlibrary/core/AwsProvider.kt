@@ -78,7 +78,7 @@ object AwsProvider {
     }
 
     fun getImageLink(botId: String, bucket: String, imageId: String): String {
-        return "https://bot-admin-project.s3.us-west-1.amazonaws.com/$bucket/$botId/$imageId.png"
+        return "https://bot-admin-project.s3.us-west-1.amazonaws.com/$botId/$bucket/$imageId.png"
     }
 
     fun getFilesList(botId: String, bucket: String): List<String> {
