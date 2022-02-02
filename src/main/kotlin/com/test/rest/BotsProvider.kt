@@ -74,13 +74,12 @@ object BotsProvider {
     }
 
     fun getBotsInfo(): List<BotModel> {
-        //todo Ебано
-        return bots.values.map {
+        DatabaseProvider.getBotsList().map {
             BotModel(
-                it.getBotId(),
-                "https://t.me/${it.getChatBot().botUsername}",
-                "Test constructor",
-                "Test constructorBot",
+                it.botId,
+                "https://t.me/${it.botUserName}",
+                it.botName,
+                it.botDescription,
                 UsersCountModel(0, 0, 0)
             )
         }

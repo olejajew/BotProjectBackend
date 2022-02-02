@@ -16,7 +16,7 @@ import org.telegram.telegrambots.meta.api.objects.Update
 class UserChatBot(
     private val botToken: String,
     private val botUserName: String,
-    private val botId: String
+    private val botId: String,
 ) : ChatBot(), AnalyticsBot, BotConstructor, NewReferralListener {
 
     //todo Бля буду конфликт между mailin со стороны analytics и со стороны constructor

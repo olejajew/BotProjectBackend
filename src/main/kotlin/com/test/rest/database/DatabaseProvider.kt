@@ -22,10 +22,14 @@ object DatabaseProvider {
 
     fun updateBotInfo(botId: String, data: BotInfoModel) {
         val docRef = FirestoreProvider.getCollection(BOTS_COLLECTION)
-        docRef.document(botId).update(mapOf(
-            BotInfoModel::name.name to data.name,
-            BotInfoModel::description.name to data.description
-        ))
+        val updateInfo = hashMapOf<String, Any>()
+        if(!data.name.isNullOrEmpty()){
+            updateInfo[BotInfoModel::name.name] = data.name
+        }
+        if(!data.description.isNullOrEmpty()){
+            updateInfo[BotInfoModel::description.name] = data.description
+        }
+        docRef.document(botId).update(updateInfo)
     }
 
     fun getBotsList(): List<BotInstanceInfoModel> {
