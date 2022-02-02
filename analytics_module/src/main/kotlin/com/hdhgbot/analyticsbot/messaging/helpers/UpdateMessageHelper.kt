@@ -134,7 +134,9 @@ class UpdateMessageHelper(private val analyticsModule: AnalyticsModule) {
         val mailingModel = MailingModel(
             updateMessageModel.message,
             ListUtils.convertListToString(listOf(image)),
-            ListUtils.convertListToString(buttons?.map { it.toString() } ?: emptyList()),
+            ListUtils.convertListToString(
+                buttons?.map { UrlButtonModel(it.title, it.url ?: "").toString() } ?: emptyList()
+            ),
             updateMessageModel.id
         )
         databaseHelper.mailingTableProvider.editMailing(mailingModel)

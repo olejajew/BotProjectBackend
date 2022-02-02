@@ -77,7 +77,9 @@ class MessagingProvider(private val analyticsModule: AnalyticsModule) {
                     ListUtils.convertStringToList(it.images).map {
                         analyticsModule.getFilesProvider().getImageLink(it)
                     },
-                    ListUtils.convertStringToList(it.buttons).map { UrlButtonModel(it) },
+                    ListUtils.convertStringToList(it.buttons).map {
+                        UrlButtonModel(it)
+                    },
                     it.sentTime,
                     it.mailingId
                 )

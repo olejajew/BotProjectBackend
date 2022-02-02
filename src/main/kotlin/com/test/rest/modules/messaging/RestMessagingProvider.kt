@@ -41,11 +41,7 @@ object RestMessagingProvider {
             return
         }
         try {
-            val mailing = BotsProvider.getBot(botId)?.getAnalyticsModule()?.getAllMailing()
-            if (mailing == null) {
-                call.hasNotModule("messaging")
-                return
-            }
+            val mailing = BotsProvider.getBot(botId).getAnalyticsModule().getAllMailing()
             call.respond(mailing)
         } catch (e: Exception) {
             e.printStackTrace()

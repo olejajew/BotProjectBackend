@@ -14,6 +14,7 @@ class UrlButtonModel {
 
     constructor(string: String) {
         val items = string.split(URL_BUTTON_SEPARATOR)
+        println("HERE $string. Item = $items")
         this.buttonText = items[0]
         this.buttonUrl = items[1]
     }
