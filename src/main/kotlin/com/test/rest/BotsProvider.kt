@@ -74,7 +74,7 @@ object BotsProvider {
     }
 
     fun getBotsInfo(): List<BotModel> {
-        DatabaseProvider.getBotsList().map {
+        return DatabaseProvider.getBotsList().map {
             BotModel(
                 it.botId,
                 "https://t.me/${it.botUserName}",
