@@ -78,8 +78,8 @@ object BotsProvider {
             BotModel(
                 it.botId,
                 "https://t.me/${it.botUserName}",
-                it.botName,
-                it.botDescription,
+                it.name,
+                it.description,
                 UsersCountModel(0, 0, 0)
             )
         }

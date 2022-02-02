@@ -4,6 +4,6 @@ data class BotInstanceInfoModel(
     val botId: String = "",
     val botToken: String = "",
     val botUserName: String = "",
-    val botDescription: String = "",
-    val botName: String = ""
+    val description: String = "",
+    val name: String = ""
 )
