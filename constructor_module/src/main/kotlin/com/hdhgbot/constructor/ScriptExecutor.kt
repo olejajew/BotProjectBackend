@@ -54,7 +54,7 @@ class ScriptExecutor(private val constructorModule: ConstructorModule) {
         if (data.images.isNullOrEmpty() || data.buttons.isNullOrEmpty()) {
             return
         }
-        val buttons = convertToBotButtons(data.buttons, ButtonType.inlineButton)
+        val buttons = convertToBotButtons(data.buttons, ButtonType.keyboardButton)
         constructorModule.chatBot.sendMessageWithImageInputStream(
             getImage(data.images.first()),
             chatId,
