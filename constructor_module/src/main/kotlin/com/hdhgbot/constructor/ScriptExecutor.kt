@@ -1,5 +1,6 @@
 package com.hdhgbot.constructor
 
+import com.botlibrary.core.AwsProvider
 import com.hdhgbot.botlibrary.BotButton
 import com.hdhgbot.botlibrary.models.ImageInputStream
 import com.hdhgbot.constructor.enums.ButtonType
@@ -81,10 +82,14 @@ class ScriptExecutor(private val constructorModule: ConstructorModule) {
     }
 
     private fun sendTextImage(data: BotActionData, chatId: Long) {
-        if (data.text == null) {
+        if (data.text == null || data.images == null) {
             return
         }
-        constructorModule.chatBot.sendMessage(data.text, chatId)
+        val imageInputStream = ImageInputStream(
+            constructorModule.getFilesProvider().getImage(data.images.first()),
+            data.images.first()
+        )
+        constructorModule.chatBot.sendMessageWithImageInputStream(imageInputStream, chatId, data.text)
     }
 
     private fun sendTextKeyboardButtonsImage(data: BotActionData, chatId: Long) {
