@@ -32,8 +32,8 @@ class Application {
         private fun startServer() {
             val server = embeddedServer(
                 Netty,
-                port = System.getenv("PORT").toInt(),
-//                port = 11320
+//                port = System.getenv("PORT").toInt(),
+                port = 11320
             ) {
                 install(ContentNegotiation) {
                     jackson {

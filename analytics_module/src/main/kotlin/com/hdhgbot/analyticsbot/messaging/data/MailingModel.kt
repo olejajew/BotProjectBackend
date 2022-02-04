@@ -7,5 +7,5 @@ data class MailingModel(
     var images: String = "",
     val buttons: String = "",
     var mailingId: String = UUID.randomUUID().toString(),
-    var sentTime: Long = System.currentTimeMillis()
+    var sentTime: Long = System.currentTimeMillis(),
 )

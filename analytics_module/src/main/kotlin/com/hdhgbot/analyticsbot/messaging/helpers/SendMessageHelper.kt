@@ -34,17 +34,18 @@ class SendMessageHelper(private val analyticsModule: AnalyticsModule) {
         val chatMailingProvider = analyticsModule.getDatabaseHelper().chatMailingTableProvider
         val imageName = ListUtils.convertStringToList(mailingModel.images)[0]
         val image = analyticsModule.getFilesProvider().getImage(imageName)
+        println("HERE = " + image)
         val buttonsStringList = ListUtils.convertStringToList(mailingModel.buttons)
         val buttons = buttonsStringList.map {
             val urlButtonModel = UrlButtonModel(it)
             BotButton(urlButtonModel.buttonText, "", urlButtonModel.buttonUrl)
         }
         val listButtons = arrayListOf(buttons)
+        val imageInputStream = ImageInputStream(
+            image,
+            imageName
+        )
         analyticsModule.getUsersProvider().getAliveUsers().forEach {
-            val imageInputStream = ImageInputStream(
-                image,
-                imageName
-            )
             val message =
                 analyticsModule.getChatBot()
                     .sendMessageWithImageInputStream(imageInputStream, it, mailingModel.message, listButtons)

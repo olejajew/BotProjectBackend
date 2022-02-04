@@ -13,7 +13,6 @@ import io.ktor.response.*
 object RestMessagingProvider {
 
     suspend fun sendMailing(call: ApplicationCall) {
-        //todo Вот тут мы картинки ловим в base64. Неверно. Надо ловить их через спец метод
         try {
             val botRequest = call.receiveBotRequest<RequestSendMessageModel>()
             if (!BotsProvider.checkHasBot(botRequest.botId)) {
