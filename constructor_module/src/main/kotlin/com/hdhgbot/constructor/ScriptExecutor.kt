@@ -59,6 +59,7 @@ class ScriptExecutor(private val constructorModule: ConstructorModule) {
             getImage(data.images.first()),
             chatId,
             buttons = buttons,
+            isInline = false
         )
     }
 
