@@ -10,7 +10,7 @@ fun Update.chatId(): Long {
 }
 
 fun Message.getCommand(): String {
-    return this.text.split(" ")[0].trim()
+    return this.text.split(" ")[0].trim().split("@")[0]
 }
 
 fun Message.getReferrerIfHas(): String? {
