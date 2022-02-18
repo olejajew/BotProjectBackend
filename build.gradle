@@ -36,16 +36,9 @@ dependencies {
     testImplementation "io.ktor:ktor-server-tests:$ktor_version"
     implementation "io.ktor:ktor-client-apache:$ktor_version"
     implementation "io.ktor:ktor-client-core:$ktor_version"
-    implementation 'com.google.code.gson:gson:2.8.9'
-    implementation project (':constructor_module')
     implementation 'joda-time:joda-time:2.10.13'
     implementation project (':core')
-    implementation project (':analytics_module')
-    implementation project (':constructor_module')
-
-    implementation 'com.google.firebase:firebase-admin:8.1.0'
-    implementation platform('com.amazonaws:aws-java-sdk-bom:1.11.1000')
-    implementation 'com.amazonaws:aws-java-sdk-s3'
+    implementation project (':bot')
 }
 
 test {

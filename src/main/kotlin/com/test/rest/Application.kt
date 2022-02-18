@@ -19,6 +19,7 @@ class Application {
 
     //todo Очень много моделей данных, связанных с данными бота
     companion object {
+
         @JvmStatic
         fun main(args: Array<String>) {
             initBots()
@@ -33,7 +34,6 @@ class Application {
             val server = embeddedServer(
                 Netty,
                 port = System.getenv("PORT").toInt(),
-//                port = 11320
             ) {
                 install(ContentNegotiation) {
                     jackson {

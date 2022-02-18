@@ -1,8 +1,8 @@
 package com.test.rest
 
-import com.hdhgbot.analyticsbot.messaging.data.PostSendMessageModel
-import com.hdhgbot.analyticsbot.users.data.UsersCountModel
-import com.hdhgbot.constructor.models.InstructionsModel
+import com.doblack.bot_library.analytics.messaging.data.PostSendMessageModel
+import com.doblack.bot_library.analytics.users.data.UsersCountModel
+import com.doblack.bot_library.constructor.models.InstructionsModel
 import com.test.rest.database.DatabaseProvider
 import com.test.rest.models.BotInfoModel
 import com.test.rest.models.BotModel

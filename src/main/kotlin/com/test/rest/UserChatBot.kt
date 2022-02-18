@@ -1,15 +1,15 @@
 package com.test.rest
 
-import com.hdhgbot.analyticsbot.AnalyticsBot
-import com.hdhgbot.analyticsbot.AnalyticsModule
-import com.hdhgbot.analyticsbot.messaging.data.PostSendMessageModel
-import com.hdhgbot.analyticsbot.referrer.NewReferralListener
-import com.hdhgbot.botlibrary.ChatBot
-import com.hdhgbot.botlibrary.chatId
-import com.hdhgbot.botlibrary.getCommand
-import com.hdhgbot.constructor.BotConstructor
-import com.hdhgbot.constructor.ConstructorModule
-import com.hdhgbot.constructor.models.InstructionsModel
+import com.doblack.bot_library.analytics.AnalyticsBot
+import com.doblack.bot_library.analytics.AnalyticsModule
+import com.doblack.bot_library.analytics.messaging.data.PostSendMessageModel
+import com.doblack.bot_library.analytics.referrer.NewReferralListener
+import com.doblack.bot_library.base.ChatBot
+import com.doblack.bot_library.base.chatId
+import com.doblack.bot_library.base.getCommand
+import com.doblack.bot_library.constructor.BotConstructor
+import com.doblack.bot_library.constructor.ConstructorModule
+import com.doblack.bot_library.constructor.models.InstructionsModel
 import org.telegram.telegrambots.meta.api.objects.Message
 import org.telegram.telegrambots.meta.api.objects.Update
 
@@ -44,12 +44,14 @@ class UserChatBot(
 
         when (message.text) {
             "send" -> {
-                analyticsModule.sendMessageToEverything(PostSendMessageModel(
+                analyticsModule.sendMessageToEverything(
+                    PostSendMessageModel(
                     botId,
                     "test",
                     null,
                     null
-                ))
+                )
+                )
             }
             "user" -> {
                 analyticsModule.getDatabaseHelper().chatMailingTableProvider.removeMessageByUser(message.chatId)
